@@ -15,16 +15,22 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              With over 3 years of experience in web & mobile development, I
-              specialize in creating responsive, accessible, and performant web
-              & mobiles applications using modern technologies.
+              I'm a Frontend Developer at IDFC FIRST Bank with 3+ years of
+              experience in building responsive web and mobile apps using
+              React.js, React Native, JavaScript, Redux, Jest, React Router,
+              REST APIs, Tailwind CSS, Git, and styled-components. Here I’ve
+              contributed to key banking journeys like Pay Abroad, FCNR FD, and
+              Re-KYC, focusing on enhancing user experience and operational
+              efficiency.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
+              In addition to frontend and mobile development, I have hands-on
+              experience with Node.js, Express.js, MongoDB, Firebase, MySQL, and
+              JWT—enabling me to work across the MERN stack and take on
+              full-stack development projects. I also bring a strong foundation
+              in Data Structures, Algorithms, Object-Oriented Programming, and
+              System Design.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -64,8 +70,8 @@ export const AboutSection = () => {
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">App Development</h4>
                   <p className="text-muted-foreground">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
+                    Creating responsive Mobile applications with modern
+                    frameworks.
                   </p>
                 </div>
               </div>

@@ -25,11 +25,11 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
+        "fixed w-full z-40 transition-all duration-300 ",
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between ">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
@@ -41,7 +41,7 @@ export const Navbar = () => {
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 mr-8">
           {navItems.map((item, key) => (
             <a
               key={key}

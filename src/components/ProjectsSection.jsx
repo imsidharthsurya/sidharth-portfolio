@@ -6,7 +6,7 @@ const projects = [
     title: "Flash Movie App",
     description: "A beautiful movie app built using React and Tailwind.",
     image: "/projects/project1.png",
-    tags: ["React", "Redux", "Tailwind"],
+    tags: ["React", "Redux", "Tailwind", "Firebase"],
     demoUrl: "https://flashnew.netlify.app/",
     githubUrl: "https://github.com/imsidharthsurya/flash",
   },
@@ -72,7 +72,7 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-5 w-full justify-center">
                     <a
                       href={project.demoUrl}
                       target="_blank"

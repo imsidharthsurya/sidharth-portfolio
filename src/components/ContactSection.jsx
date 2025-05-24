@@ -7,27 +7,47 @@ import {
   Send,
   Twitch,
   Twitter,
+  Github,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
+  const [msgInfo, setMsgInfo] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const SERVICE_ID = "service_i7w5lfb";
+  const TEMPLATE_ID = "template_990n0ip";
+  const PUBLIC_KEY = "Fjcr2aFz94MylLAEh";
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, {
+        publicKey: PUBLIC_KEY,
+      })
+      .then((res) => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setIsSubmitting(false);
+      })
+      .catch((err) => {
+        toast({
+          title: "Message Not sent!",
+          description: "Please Try again!",
+        });
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1500);
   };
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
@@ -97,6 +117,10 @@ export const ContactSection = () => {
                   <Linkedin />
                 </a>
 
+                <a href="https://github.com/imsidharthsurya" target="_blank">
+                  <Github />
+                </a>
+
                 <a href="https://www.instagram.com/sid2op/" target="_blank">
                   <Instagram />
                 </a>
@@ -122,6 +146,10 @@ export const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
+                  value={msgInfo.name}
+                  onChange={(e) =>
+                    setMsgInfo({ ...msgInfo, name: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                   placeholder="Your name"
@@ -139,6 +167,10 @@ export const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={msgInfo.email}
+                  onChange={(e) =>
+                    setMsgInfo({ ...msgInfo, email: e.target.value })
+                  }
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
@@ -156,6 +188,10 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
+                  value={msgInfo.message}
+                  onChange={(e) =>
+                    setMsgInfo({ ...msgInfo, message: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 />
