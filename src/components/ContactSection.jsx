@@ -23,17 +23,18 @@ export const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const SERVICE_ID = "service_i7w5lfb";
-  const TEMPLATE_ID = "template_990n0ip";
-  const PUBLIC_KEY = "Fjcr2aFz94MylLAEh";
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
     emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, {
-        publicKey: PUBLIC_KEY,
-      })
+      .sendForm(
+        import.meta.env.VITE_SERVICE_ID,
+        import.meta.env.VITE_TEMPLATE_ID,
+        e.target,
+        {
+          publicKey: import.meta.env.VITE_PUBLIC_KEY,
+        }
+      )
       .then((res) => {
         toast({
           title: "Message sent!",
